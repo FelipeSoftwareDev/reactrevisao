@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import felipetelogo from './assets/felipetelogo.png'
+import devforge from './assets/devForgeL.svg'
 import pythonlogo from './assets/python2.svg'
 import gitlogo from './assets/gitlogo.svg'
+import SidebarLinks from'./components/MyComponents.tsx'
 
 
 function funbutton() {
@@ -19,84 +20,32 @@ function card() {
 function sideBar() {
   return (
     <>
-      <div className="mx-auto flex max-w-sm items-center gap-x-4 bg-white p-6 shadow-lg outline outline-black/5 dark:bg-stone-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10  absolute inset-y-0 left-0 w-70">
-        <img className="size-45 shrink-0 absolute top-0 left-0" src={felipetelogo} alt="Felipete Logo" />
-        <div>
-          <div className="text-xl font-medium text-black dark:text-emerald-300">Velibinho Cursos</div>
-          <p className="text-gray-500 dark:text-gray-100">O futuro dos cursu!</p>
-          <a href="https://felipete.faq" className=" no-underline text-white mt-3 hover:text-emerald-500 block border-1 rounded-xs bg-stone-600 px-4 py-1.5 text-sm font-semibold leading-5 border-solid border-white transition-colors hover:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 dark:focus:ring-offset-stone-800"> Felipete
-          </a>
+      <div className="fixed inset-y-0 left-0 w-64 bg-stone-800 shadow-lg flex flex-col items-center justify-center p-6 gap-8 border-r border-stone-700">
+      {/*Logo*/}
+      <img
+        src={devforge}
+        alt="DevForge Logo"
+        className="w-49 object-contain mb-6"
+      />
 
-        </div>
+      {/*Menu*/}
+      <div className="flex flex-col items-center gap-4 w-full">
+        <h2 className="text-xl font-semibold text-amber-400 mb-2">Menu</h2>
+
+        {/* Links Menu */}
+       <div className="flex flex-col items-center gap-4 w-full">
+        <SidebarLinks href="https://felipete.faq">Felipete</SidebarLinks>
+        <SidebarLinks href="#projects">Trilhas</SidebarLinks>
+        <SidebarLinks href="#quemsomos">Quem Somos</SidebarLinks>
+        <SidebarLinks href="#contact">Contato</SidebarLinks>
+        <SidebarLinks href="#roadmaps">RoadMaps</SidebarLinks>
       </div>
-    </>
-  )
-}
-/*
-function checklistTest(){
-   return(
-           <>
-  <div className="col-start-3 row-start-3 flex max-w-lg flex-col bg-gray-100 p-2 dark:bg-white/10"></div>
-<div className="col-start-3 row-start-3 flex max-w-lg flex-col bg-gray-100 p-2 dark:bg-white/10">
-    <div className="rounded-xl bg-white p-10 text-sm/7 text-gray-700 dark:bg-gray-950 dark:text-gray-300">
-   <div className="space-y-6">
-        <p className='dark:text-emerald-400' >An advanced online playground for Tailwind CSS, including support for things like:</p>
-        <ul className="space-y-3">
-          <li className="flex">
-            <svg className="h-[1lh] w-5.5 shrink-0" viewBox="0 0 22 22" fill="none" stroke-linecap="square">
-              <circle cx="11" cy="11" r="11" className="fill-fuchsia-600/25" />
-              <circle cx="11" cy="11" r="10.5" className="stroke-sky-400/25" />
-              <path d="M8 11.5L10.5 14L14 8" className="stroke-sky-800 dark:stroke-sky-300" />
-            </svg>
-            <p className="ml-3 text-emerald-400">
-              Customized theme with 
-              <code className="font-mono font-medium text-gray-950 dark:text-fuchsia-600">@tailwindcss</code>
-            </p>
-          </li>
-          <li className="flex">
-            <svg className="h-[1lh] w-5.5 shrink-0" viewBox="0 0 22 22" fill="none" stroke-linecap="square">
-              <circle cx="11" cy="11" r="11" className="fill-fuchsia-600/25" />
-              <circle cx="11" cy="11" r="10.5" className="stroke-sky-400/25" />
-              <path d="M8 11.5L10.5 14L14 8" className="stroke-sky-800 dark:stroke-sky-300" />
-            </svg>
-            <p className="ml-3 text-emerald-400">
-              Adding custom utilities with
-              <code className="font-mono font-medium text-gray-950 dark:text-fuchsia-600">@utility</code>
-            </p>
-          </li>
-          <li className="flex">
-            <svg className="h-[1lh] w-5.5 shrink-0" viewBox="0 0 22 22" fill="none" stroke-linecap="square">
-              <circle cx="11" cy="11" r="11" className="fill-fuchsia-600/25" />
-              <circle cx="11" cy="11" r="10.5" className="stroke-sky-400/25" />
-              <path d="M8 11.5L10.5 14L14 8" className="stroke-sky-800 dark:stroke-sky-300" />
-            </svg>
-            <p className="ml-3 text-emerald-400">
-              Adding custom variants with
-              <code className="font-mono font-medium text-gray-950 dark:text-fuchsia-600">@variant</code>
-            </p>
-          </li>
-          <li className="flex">
-            <svg className="h-[1lh] w-5.5 shrink-0" viewBox="0 0 22 22" fill="none" stroke-linecap="square">
-              <circle cx="11" cy="11" r="11" className="fill-fuchsia-600/25" />
-              <circle cx="11" cy="11" r="10.5" className="stroke-emerald-400/25" />
-              <path d="M8 11.5L10.5 14L14 8" className="stroke-emerald-800 dark:stroke-emerald-300" />
-            </svg>
-            <p className="ml-3 text-emerald-400">Code completion with instant preview</p>
-          </li>
-        </ul>
-        <p>Perfect for learning how the framework works, prototyping a new idea, or creating a demo to share online.</p>
       </div>
-      <hr className="my-6 w-full border-(--pattern-fg)" />
-      <p className="mb-3">Want to dig deeper into Tailwind?</p>
-      <p className="font-semibold">
-        <a href="https://tailwindcss.com/docs" className="text-gray-950 underline decoration-sky-400 underline-offset-3 hover:decoration-2 dark:text-white">Read the docs &rarr;</a>
-      </p>
     </div>
-  </div>
     </>
   )
 }
-*/
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -120,7 +69,7 @@ function App() {
           <svg className="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </a>
       </div>
-      <h2 className='text-4xl'>Escolha sua Tecnologia</h2>
+      <h2 className='text-4xl text-amber-50'>Escolha uma Tecnologia e Inicie sua Jornada</h2>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -133,7 +82,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <div>
-        { /* checklistTest() */}
+        { /* Teste inicial */}
         {funbutton()}
         {card()}
       </div>
