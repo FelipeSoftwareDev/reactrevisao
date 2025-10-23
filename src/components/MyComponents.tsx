@@ -1,3 +1,10 @@
+
+
+import { useState } from "react";
+import {useNavigate} from "react-router-dom";
+import {courses} from "../pages/courses.jsx";
+
+
 // components/SidebarLink.jsx
 interface SidebarLinksProps {
   href: string;
@@ -36,4 +43,34 @@ export default function SidebarLinks({ href, children }: SidebarLinksProps) {
   );
 }
 
+export function SearchBar() {
 
+  const[query, setQuery] = React.useState("");
+  const navigate = useNavigate();
+
+  const filtered = courses.filter(course =>
+    course.title.toLowerCase().includes(query.toLowerCase())
+  );
+
+  // add slugs to improve seo
+
+   const handleSelect = (slug) => {
+    navigate(`/courses/${slug}`);
+    setQuery(""); 
+  };
+
+
+  return(
+   <div className="relative w-full max-w-md mx-auto mt-10">
+  <input 
+  className="search-bar bg-stone-600 border-2 border-solid border-amber-50 rounded-md p-2 text-white w-3/4"
+  type="text"
+  placeholder="Buscar curso..."
+  value={query}
+  onChange={(e) => setQuery(e.target.value)}
+
+  />
+  </div>
+  
+  )
+}
